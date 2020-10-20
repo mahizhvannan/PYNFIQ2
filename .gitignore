@@ -1,0 +1,9 @@
+*.o
+*.png
+*.jpg
+*.a
+*.so
+bin
+*.zip
+*.d
+.vscode

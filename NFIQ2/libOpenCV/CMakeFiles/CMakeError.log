@@ -1,0 +1,501 @@
+Build output check failed:
+    Regex: 'command line option .* is valid for .* but not for C\+\+'
+    Output line: 'cc1plus: warning: command line option '-Wmissing-prototypes' is valid for C/ObjC but not for C++ [enabled by default]'
+Compilation failed:
+    source file: '/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp/src.cxx'
+    check option: ' -fsigned-char -W -Wall -Werror=return-type -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations  -Wmissing-prototypes'
+===== BUILD LOG =====
+Change Dir: /home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp
+
+Run Build Command:make "cmTryCompileExec276276557/fast"
+make -f CMakeFiles/cmTryCompileExec276276557.dir/build.make CMakeFiles/cmTryCompileExec276276557.dir/build
+make[1]: Entering directory `/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec276276557.dir/src.cxx.o
+/usr/bin/c++    -O3 -DNDEBUG   -fsigned-char -W -Wall -Werror=return-type -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -o CMakeFiles/cmTryCompileExec276276557.dir/src.cxx.o -c /home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp/src.cxx
+cc1plus: warning: command line option '-Wmissing-prototypes' is valid for C/ObjC but not for C++ [enabled by default]
+/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp/src.cxx:1:0: warning: ignoring #pragma   [-Wunknown-pragmas]
+ #pragma
+ ^
+Linking CXX executable cmTryCompileExec276276557
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec276276557.dir/link.txt --verbose=1
+/usr/bin/c++     -O3 -DNDEBUG    CMakeFiles/cmTryCompileExec276276557.dir/src.cxx.o  -o cmTryCompileExec276276557 -rdynamic 
+make[1]: Leaving directory `/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp'
+
+===== END =====
+
+Build output check failed:
+    Regex: 'command line option .* is valid for .* but not for C\+\+'
+    Output line: 'cc1plus: warning: command line option '-Wstrict-prototypes' is valid for C/ObjC but not for C++ [enabled by default]'
+Compilation failed:
+    source file: '/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp/src.cxx'
+    check option: ' -fsigned-char -W -Wall -Werror=return-type -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations  -Wstrict-prototypes'
+===== BUILD LOG =====
+Change Dir: /home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp
+
+Run Build Command:make "cmTryCompileExec3820654077/fast"
+make -f CMakeFiles/cmTryCompileExec3820654077.dir/build.make CMakeFiles/cmTryCompileExec3820654077.dir/build
+make[1]: Entering directory `/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec3820654077.dir/src.cxx.o
+/usr/bin/c++    -O3 -DNDEBUG   -fsigned-char -W -Wall -Werror=return-type -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wstrict-prototypes -o CMakeFiles/cmTryCompileExec3820654077.dir/src.cxx.o -c /home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp/src.cxx
+cc1plus: warning: command line option '-Wstrict-prototypes' is valid for C/ObjC but not for C++ [enabled by default]
+/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp/src.cxx:1:0: warning: ignoring #pragma   [-Wunknown-pragmas]
+ #pragma
+ ^
+Linking CXX executable cmTryCompileExec3820654077
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3820654077.dir/link.txt --verbose=1
+/usr/bin/c++     -O3 -DNDEBUG    CMakeFiles/cmTryCompileExec3820654077.dir/src.cxx.o  -o cmTryCompileExec3820654077 -rdynamic 
+make[1]: Leaving directory `/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp'
+
+===== END =====
+
+Build output check failed:
+    Regex: 'command line option .* is valid for .* but not for C'
+    Output line: 'cc1: warning: command line option '-Wsign-promo' is valid for C++/ObjC++ but not for C [enabled by default]'
+Compilation failed:
+    source file: '/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp/src.c'
+    check option: ' -fsigned-char -W -Wall -Werror=return-type -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow  -Wsign-promo'
+===== BUILD LOG =====
+Change Dir: /home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp
+
+Run Build Command:make "cmTryCompileExec1229373150/fast"
+make -f CMakeFiles/cmTryCompileExec1229373150.dir/build.make CMakeFiles/cmTryCompileExec1229373150.dir/build
+make[1]: Entering directory `/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1229373150.dir/src.c.o
+/usr/bin/cc   -O3 -DNDEBUG   -fsigned-char -W -Wall -Werror=return-type -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -o CMakeFiles/cmTryCompileExec1229373150.dir/src.c.o   -c /home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp/src.c
+cc1: warning: command line option '-Wsign-promo' is valid for C++/ObjC++ but not for C [enabled by default]
+/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp/src.c:1:0: warning: ignoring #pragma   [-Wunknown-pragmas]
+ #pragma
+ ^
+Linking C executable cmTryCompileExec1229373150
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1229373150.dir/link.txt --verbose=1
+/usr/bin/cc    -O3 -DNDEBUG    CMakeFiles/cmTryCompileExec1229373150.dir/src.c.o  -o cmTryCompileExec1229373150 -rdynamic 
+make[1]: Leaving directory `/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp'
+
+===== END =====
+
+Build output check failed:
+    Regex: 'command line option .* is valid for .* but not for C'
+    Output line: 'cc1: warning: command line option '-Wno-delete-non-virtual-dtor' is valid for C++/ObjC++ but not for C [enabled by default]'
+Compilation failed:
+    source file: '/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp/src.c'
+    check option: ' -fsigned-char -W -Wall -Werror=return-type -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wno-narrowing  -Wno-delete-non-virtual-dtor'
+===== BUILD LOG =====
+Change Dir: /home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp
+
+Run Build Command:make "cmTryCompileExec3732472808/fast"
+make -f CMakeFiles/cmTryCompileExec3732472808.dir/build.make CMakeFiles/cmTryCompileExec3732472808.dir/build
+make[1]: Entering directory `/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3732472808.dir/src.c.o
+/usr/bin/cc   -O3 -DNDEBUG   -fsigned-char -W -Wall -Werror=return-type -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wno-narrowing -Wno-delete-non-virtual-dtor -o CMakeFiles/cmTryCompileExec3732472808.dir/src.c.o   -c /home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp/src.c
+cc1: warning: command line option '-Wno-delete-non-virtual-dtor' is valid for C++/ObjC++ but not for C [enabled by default]
+/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp/src.c:1:0: warning: ignoring #pragma   [-Wunknown-pragmas]
+ #pragma
+ ^
+Linking C executable cmTryCompileExec3732472808
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3732472808.dir/link.txt --verbose=1
+/usr/bin/cc    -O3 -DNDEBUG    CMakeFiles/cmTryCompileExec3732472808.dir/src.c.o  -o cmTryCompileExec3732472808 -rdynamic 
+make[1]: Leaving directory `/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp'
+
+===== END =====
+
+Build output check failed:
+    Regex: 'unrecognized .*option'
+    Output line: 'cc1plus: warning: unrecognized command line option "-Wno-unnamed-type-template-args" [enabled by default]'
+Compilation failed:
+    source file: '/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp/src.cxx'
+    check option: ' -fsigned-char -W -Wall -Werror=return-type -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wno-narrowing -Wno-delete-non-virtual-dtor  -Wno-unnamed-type-template-args'
+===== BUILD LOG =====
+Change Dir: /home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp
+
+Run Build Command:make "cmTryCompileExec3025487926/fast"
+make -f CMakeFiles/cmTryCompileExec3025487926.dir/build.make CMakeFiles/cmTryCompileExec3025487926.dir/build
+make[1]: Entering directory `/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec3025487926.dir/src.cxx.o
+/usr/bin/c++    -O3 -DNDEBUG   -fsigned-char -W -Wall -Werror=return-type -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wno-narrowing -Wno-delete-non-virtual-dtor -Wno-unnamed-type-template-args -o CMakeFiles/cmTryCompileExec3025487926.dir/src.cxx.o -c /home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp/src.cxx
+/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp/src.cxx:1:0: warning: ignoring #pragma   [-Wunknown-pragmas]
+ #pragma
+ ^
+cc1plus: warning: unrecognized command line option "-Wno-unnamed-type-template-args" [enabled by default]
+Linking CXX executable cmTryCompileExec3025487926
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3025487926.dir/link.txt --verbose=1
+/usr/bin/c++     -O3 -DNDEBUG    CMakeFiles/cmTryCompileExec3025487926.dir/src.cxx.o  -o cmTryCompileExec3025487926 -rdynamic 
+make[1]: Leaving directory `/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp'
+
+===== END =====
+
+Build output check failed:
+    Regex: 'unrecognized .*option'
+    Output line: 'cc1: warning: unrecognized command line option "-Wno-unnamed-type-template-args" [enabled by default]'
+Compilation failed:
+    source file: '/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp/src.c'
+    check option: ' -fsigned-char -W -Wall -Werror=return-type -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wno-narrowing  -Wno-unnamed-type-template-args'
+===== BUILD LOG =====
+Change Dir: /home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp
+
+Run Build Command:make "cmTryCompileExec3310489139/fast"
+make -f CMakeFiles/cmTryCompileExec3310489139.dir/build.make CMakeFiles/cmTryCompileExec3310489139.dir/build
+make[1]: Entering directory `/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3310489139.dir/src.c.o
+/usr/bin/cc   -O3 -DNDEBUG   -fsigned-char -W -Wall -Werror=return-type -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wno-narrowing -Wno-unnamed-type-template-args -o CMakeFiles/cmTryCompileExec3310489139.dir/src.c.o   -c /home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp/src.c
+/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp/src.c:1:0: warning: ignoring #pragma   [-Wunknown-pragmas]
+ #pragma
+ ^
+cc1: warning: unrecognized command line option "-Wno-unnamed-type-template-args" [enabled by default]
+Linking C executable cmTryCompileExec3310489139
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3310489139.dir/link.txt --verbose=1
+/usr/bin/cc    -O3 -DNDEBUG    CMakeFiles/cmTryCompileExec3310489139.dir/src.c.o  -o cmTryCompileExec3310489139 -rdynamic 
+make[1]: Leaving directory `/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp'
+
+===== END =====
+
+Determining if the system is big endian passed with the following output:
+Change Dir: /home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp
+
+Run Build Command:make "cmTryCompileExec3845970427/fast"
+make -f CMakeFiles/cmTryCompileExec3845970427.dir/build.make CMakeFiles/cmTryCompileExec3845970427.dir/build
+make[1]: Entering directory `/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3845970427.dir/TestEndianess.c.o
+/usr/bin/cc   -fsigned-char -W -Wall -Werror=return-type -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wno-narrowing -Wno-comment -Wno-array-bounds -Wno-aggressive-loop-optimizations -fdiagnostics-show-option -Wno-long-long -pthread -fomit-frame-pointer -msse -msse2 -msse3 -ffunction-sections  -O3 -DNDEBUG   -o CMakeFiles/cmTryCompileExec3845970427.dir/TestEndianess.c.o   -c /home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp/TestEndianess.c
+Linking C executable cmTryCompileExec3845970427
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3845970427.dir/link.txt --verbose=1
+/usr/bin/cc     -fsigned-char -W -Wall -Werror=return-type -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wno-narrowing -Wno-comment -Wno-array-bounds -Wno-aggressive-loop-optimizations -fdiagnostics-show-option -Wno-long-long -pthread -fomit-frame-pointer -msse -msse2 -msse3 -ffunction-sections  -O3 -DNDEBUG    CMakeFiles/cmTryCompileExec3845970427.dir/TestEndianess.c.o  -o cmTryCompileExec3845970427 -rdynamic 
+make[1]: Leaving directory `/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp'
+
+TestEndianess.c:
+/* A 16 bit integer is required. */
+typedef unsigned short cmakeint16;
+
+/* On a little endian machine, these 16bit ints will give "THIS IS LITTLE ENDIAN."
+   On a big endian machine the characters will be exchanged pairwise. */
+const cmakeint16 info_little[] =  {0x4854, 0x5349, 0x4920, 0x2053, 0x494c, 0x5454, 0x454c, 0x4520, 0x444e, 0x4149, 0x2e4e, 0x0000};
+
+/* on a big endian machine, these 16bit ints will give "THIS IS BIG ENDIAN."
+   On a little endian machine the characters will be exchanged pairwise. */
+const cmakeint16 info_big[] =     {0x5448, 0x4953, 0x2049, 0x5320, 0x4249, 0x4720, 0x454e, 0x4449, 0x414e, 0x2e2e, 0x0000};
+
+#ifdef __CLASSIC_C__
+int main(argc, argv) int argc; char *argv[];
+#else
+int main(int argc, char *argv[])
+#endif
+{
+  int require = 0;
+  require += info_little[argc];
+  require += info_big[argc];
+  (void)argv;
+  return require;
+}
+
+
+Determining size of off64_t failed with the following output:
+Change Dir: /home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp
+
+Run Build Command:make "cmTryCompileExec2279243494/fast"
+make -f CMakeFiles/cmTryCompileExec2279243494.dir/build.make CMakeFiles/cmTryCompileExec2279243494.dir/build
+make[1]: Entering directory `/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2279243494.dir/OFF64_T.c.o
+/usr/bin/cc   -fsigned-char -W -Wall -Werror=return-type -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wno-narrowing -Wno-comment -Wno-array-bounds -Wno-aggressive-loop-optimizations -fdiagnostics-show-option -Wno-long-long -pthread -fomit-frame-pointer -msse -msse2 -msse3 -ffunction-sections  -O3 -DNDEBUG   -o CMakeFiles/cmTryCompileExec2279243494.dir/OFF64_T.c.o   -c /home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CheckTypeSize/OFF64_T.c
+/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CheckTypeSize/OFF64_T.c:17:22: error: 'off64_t' undeclared here (not in a function)
+ #define SIZE (sizeof(off64_t))
+                      ^
+/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CheckTypeSize/OFF64_T.c:19:12: note: in expansion of macro 'SIZE'
+   ('0' + ((SIZE / 10000)%10)),
+            ^
+make[1]: *** [CMakeFiles/cmTryCompileExec2279243494.dir/OFF64_T.c.o] Error 1
+make[1]: Leaving directory `/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp'
+make: *** [cmTryCompileExec2279243494/fast] Error 2
+
+/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CheckTypeSize/OFF64_T.c:
+#include <sys/types.h>
+#include <stdint.h>
+#include <stddef.h>
+
+
+#undef KEY
+#if defined(__i386)
+# define KEY '_','_','i','3','8','6'
+#elif defined(__x86_64)
+# define KEY '_','_','x','8','6','_','6','4'
+#elif defined(__ppc__)
+# define KEY '_','_','p','p','c','_','_'
+#elif defined(__ppc64__)
+# define KEY '_','_','p','p','c','6','4','_','_'
+#endif
+
+#define SIZE (sizeof(off64_t))
+char info_size[] =  {'I', 'N', 'F', 'O', ':', 's','i','z','e','[',
+  ('0' + ((SIZE / 10000)%10)),
+  ('0' + ((SIZE / 1000)%10)),
+  ('0' + ((SIZE / 100)%10)),
+  ('0' + ((SIZE / 10)%10)),
+  ('0' +  (SIZE    % 10)),
+  ']',
+#ifdef KEY
+  ' ','k','e','y','[', KEY, ']',
+#endif
+  '\0'};
+
+#ifdef __CLASSIC_C__
+int main(argc, argv) int argc; char *argv[];
+#else
+int main(int argc, char *argv[])
+#endif
+{
+  int require = 0;
+  require += info_size[argc];
+  (void)argv;
+  return require;
+}
+
+
+Build output check failed:
+    Regex: 'unrecognized .*option'
+    Output line: 'cc1: warning: unrecognized command line option "-Wno-shorten-64-to-32" [enabled by default]'
+Compilation failed:
+    source file: '/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp/src.c'
+    check option: ' -Wno-shorten-64-to-32'
+===== BUILD LOG =====
+Change Dir: /home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp
+
+Run Build Command:make "cmTryCompileExec1108050151/fast"
+make -f CMakeFiles/cmTryCompileExec1108050151.dir/build.make CMakeFiles/cmTryCompileExec1108050151.dir/build
+make[1]: Entering directory `/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1108050151.dir/src.c.o
+/usr/bin/cc   -fsigned-char -W -Wall -Werror=return-type -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wno-narrowing -Wno-comment -Wno-array-bounds -Wno-aggressive-loop-optimizations -fdiagnostics-show-option -Wno-long-long -pthread -fomit-frame-pointer -msse -msse2 -msse3 -ffunction-sections -fPIC  -O3 -DNDEBUG   -Wno-shorten-64-to-32 -o CMakeFiles/cmTryCompileExec1108050151.dir/src.c.o   -c /home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp/src.c
+/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp/src.c:1:0: warning: ignoring #pragma   [-Wunknown-pragmas]
+ #pragma
+ ^
+cc1: warning: unrecognized command line option "-Wno-shorten-64-to-32" [enabled by default]
+Linking C executable cmTryCompileExec1108050151
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1108050151.dir/link.txt --verbose=1
+/usr/bin/cc     -fsigned-char -W -Wall -Werror=return-type -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wno-narrowing -Wno-comment -Wno-array-bounds -Wno-aggressive-loop-optimizations -fdiagnostics-show-option -Wno-long-long -pthread -fomit-frame-pointer -msse -msse2 -msse3 -ffunction-sections -fPIC  -O3 -DNDEBUG    CMakeFiles/cmTryCompileExec1108050151.dir/src.c.o  -o cmTryCompileExec1108050151 -rdynamic 
+make[1]: Leaving directory `/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp'
+
+===== END =====
+
+Build output check failed:
+    Regex: 'unrecognized .*option'
+    Output line: 'cc1: warning: unrecognized command line option "-Wno-shift-negative-value" [enabled by default]'
+Compilation failed:
+    source file: '/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp/src.c'
+    check option: ' -Wno-shift-negative-value'
+===== BUILD LOG =====
+Change Dir: /home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp
+
+Run Build Command:make "cmTryCompileExec3399623628/fast"
+make -f CMakeFiles/cmTryCompileExec3399623628.dir/build.make CMakeFiles/cmTryCompileExec3399623628.dir/build
+make[1]: Entering directory `/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3399623628.dir/src.c.o
+/usr/bin/cc   -fsigned-char -W -Wall -Werror=return-type -Werror=address -Werror=sequence-point -Wformat -Werror=format-security    -Wundef -Winit-self -Wpointer-arith -Wshadow -Wno-narrowing -Wno-comment -Wno-array-bounds -Wno-aggressive-loop-optimizations -fdiagnostics-show-option -Wno-long-long -pthread -fomit-frame-pointer -msse -msse2 -msse3 -ffunction-sections -fPIC -Wno-attributes -Wno-strict-prototypes -Wno-missing-prototypes -Wno-missing-declarations  -O3 -DNDEBUG   -Wno-shift-negative-value -o CMakeFiles/cmTryCompileExec3399623628.dir/src.c.o   -c /home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp/src.c
+/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp/src.c:1:0: warning: ignoring #pragma   [-Wunknown-pragmas]
+ #pragma
+ ^
+cc1: warning: unrecognized command line option "-Wno-shift-negative-value" [enabled by default]
+Linking C executable cmTryCompileExec3399623628
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3399623628.dir/link.txt --verbose=1
+/usr/bin/cc     -fsigned-char -W -Wall -Werror=return-type -Werror=address -Werror=sequence-point -Wformat -Werror=format-security    -Wundef -Winit-self -Wpointer-arith -Wshadow -Wno-narrowing -Wno-comment -Wno-array-bounds -Wno-aggressive-loop-optimizations -fdiagnostics-show-option -Wno-long-long -pthread -fomit-frame-pointer -msse -msse2 -msse3 -ffunction-sections -fPIC -Wno-attributes -Wno-strict-prototypes -Wno-missing-prototypes -Wno-missing-declarations  -O3 -DNDEBUG    CMakeFiles/cmTryCompileExec3399623628.dir/src.c.o  -o cmTryCompileExec3399623628 -rdynamic 
+make[1]: Leaving directory `/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp'
+
+===== END =====
+
+Determining if the include file io.h exists failed with the following output:
+Change Dir: /home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp
+
+Run Build Command:make "cmTryCompileExec3954384259/fast"
+make -f CMakeFiles/cmTryCompileExec3954384259.dir/build.make CMakeFiles/cmTryCompileExec3954384259.dir/build
+make[1]: Entering directory `/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3954384259.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -fsigned-char -W -Wall -Werror=return-type -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wno-narrowing -Wno-comment -Wno-array-bounds -Wno-aggressive-loop-optimizations -fdiagnostics-show-option -Wno-long-long -pthread -fomit-frame-pointer -msse -msse2 -msse3 -ffunction-sections  -O3 -DNDEBUG   -o CMakeFiles/cmTryCompileExec3954384259.dir/CheckIncludeFile.c.o   -c /home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:16: fatal error: io.h: No such file or directory
+ #include <io.h>
+                ^
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTryCompileExec3954384259.dir/CheckIncludeFile.c.o] Error 1
+make[1]: Leaving directory `/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp'
+make: *** [cmTryCompileExec3954384259/fast] Error 2
+
+
+Determining if the function jbg_newlen exists failed with the following output:
+Change Dir: /home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp
+
+Run Build Command:make "cmTryCompileExec1329005461/fast"
+make -f CMakeFiles/cmTryCompileExec1329005461.dir/build.make CMakeFiles/cmTryCompileExec1329005461.dir/build
+make[1]: Entering directory `/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1329005461.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -fsigned-char -W -Wall -Werror=return-type -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wno-narrowing -Wno-comment -Wno-array-bounds -Wno-aggressive-loop-optimizations -fdiagnostics-show-option -Wno-long-long -pthread -fomit-frame-pointer -msse -msse2 -msse3 -ffunction-sections -DCHECK_FUNCTION_EXISTS=jbg_newlen -O3 -DNDEBUG   -o CMakeFiles/cmTryCompileExec1329005461.dir/CheckFunctionExists.c.o   -c /usr/share/cmake/Modules/CheckFunctionExists.c
+/usr/share/cmake/Modules/CheckFunctionExists.c:3:1: warning: function declaration isn't a prototype [-Wstrict-prototypes]
+ char CHECK_FUNCTION_EXISTS();
+ ^
+Linking C executable cmTryCompileExec1329005461
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1329005461.dir/link.txt --verbose=1
+/usr/bin/cc     -fsigned-char -W -Wall -Werror=return-type -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wno-narrowing -Wno-comment -Wno-array-bounds -Wno-aggressive-loop-optimizations -fdiagnostics-show-option -Wno-long-long -pthread -fomit-frame-pointer -msse -msse2 -msse3 -ffunction-sections -DCHECK_FUNCTION_EXISTS=jbg_newlen -O3 -DNDEBUG    CMakeFiles/cmTryCompileExec1329005461.dir/CheckFunctionExists.c.o  -o cmTryCompileExec1329005461 -rdynamic 
+CMakeFiles/cmTryCompileExec1329005461.dir/CheckFunctionExists.c.o: In function `main':
+CheckFunctionExists.c:(.text.startup.main+0xe): undefined reference to `jbg_newlen'
+collect2: error: ld returned 1 exit status
+make[1]: *** [cmTryCompileExec1329005461] Error 1
+make[1]: Leaving directory `/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp'
+make: *** [cmTryCompileExec1329005461/fast] Error 2
+
+
+Build output check failed:
+    Regex: 'unrecognized .*option'
+    Output line: 'cc1: warning: unrecognized command line option "-Wno-misleading-indentation" [enabled by default]'
+Compilation failed:
+    source file: '/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp/src.c'
+    check option: ' -Wno-misleading-indentation'
+===== BUILD LOG =====
+Change Dir: /home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp
+
+Run Build Command:make "cmTryCompileExec2429879621/fast"
+make -f CMakeFiles/cmTryCompileExec2429879621.dir/build.make CMakeFiles/cmTryCompileExec2429879621.dir/build
+make[1]: Entering directory `/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2429879621.dir/src.c.o
+/usr/bin/cc   -fsigned-char -W -Wall -Werror=return-type -Werror=address -Werror=sequence-point -Wformat -Werror=format-security   -Wstrict-prototypes  -Winit-self -Wpointer-arith  -Wno-narrowing -Wno-comment -Wno-array-bounds -Wno-aggressive-loop-optimizations -fdiagnostics-show-option -Wno-long-long -pthread -fomit-frame-pointer -msse -msse2 -msse3 -ffunction-sections -Wno-unused-but-set-variable -Wno-missing-prototypes -Wno-missing-declarations -Wno-undef -Wno-unused -Wno-sign-compare -Wno-cast-align -Wno-shadow -Wno-maybe-uninitialized -Wno-pointer-to-int-cast -Wno-int-to-pointer-cast  -O3 -DNDEBUG   -Wno-misleading-indentation -o CMakeFiles/cmTryCompileExec2429879621.dir/src.c.o   -c /home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp/src.c
+/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp/src.c:1:0: warning: ignoring #pragma   [-Wunknown-pragmas]
+ #pragma
+ ^
+cc1: warning: unrecognized command line option "-Wno-misleading-indentation" [enabled by default]
+Linking C executable cmTryCompileExec2429879621
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2429879621.dir/link.txt --verbose=1
+/usr/bin/cc     -fsigned-char -W -Wall -Werror=return-type -Werror=address -Werror=sequence-point -Wformat -Werror=format-security   -Wstrict-prototypes  -Winit-self -Wpointer-arith  -Wno-narrowing -Wno-comment -Wno-array-bounds -Wno-aggressive-loop-optimizations -fdiagnostics-show-option -Wno-long-long -pthread -fomit-frame-pointer -msse -msse2 -msse3 -ffunction-sections -Wno-unused-but-set-variable -Wno-missing-prototypes -Wno-missing-declarations -Wno-undef -Wno-unused -Wno-sign-compare -Wno-cast-align -Wno-shadow -Wno-maybe-uninitialized -Wno-pointer-to-int-cast -Wno-int-to-pointer-cast  -O3 -DNDEBUG    CMakeFiles/cmTryCompileExec2429879621.dir/src.c.o  -o cmTryCompileExec2429879621 -rdynamic 
+make[1]: Leaving directory `/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp'
+
+===== END =====
+
+Build output check failed:
+    Regex: 'unrecognized .*option'
+    Output line: 'cc1plus: warning: unrecognized command line option "-Wno-misleading-indentation" [enabled by default]'
+Compilation failed:
+    source file: '/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp/src.cxx'
+    check option: ' -Wno-misleading-indentation'
+===== BUILD LOG =====
+Change Dir: /home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp
+
+Run Build Command:make "cmTryCompileExec449292287/fast"
+make -f CMakeFiles/cmTryCompileExec449292287.dir/build.make CMakeFiles/cmTryCompileExec449292287.dir/build
+make[1]: Entering directory `/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec449292287.dir/src.cxx.o
+/usr/bin/c++    -fsigned-char -W -Wall -Werror=return-type -Werror=address -Werror=sequence-point -Wformat -Werror=format-security   -Winit-self -Wpointer-arith  -Wsign-promo -Wno-narrowing -Wno-delete-non-virtual-dtor -Wno-comment -Wno-array-bounds -Wno-aggressive-loop-optimizations -fdiagnostics-show-option -Wno-long-long -pthread -fomit-frame-pointer -msse -msse2 -msse3 -ffunction-sections -Wno-shadow -Wno-unused -Wno-sign-compare -Wno-undef -Wno-missing-declarations -Wno-uninitialized -Wno-switch -Wno-parentheses -Wno-array-bounds -Wno-extra -Wno-deprecated-declarations  -O3 -DNDEBUG   -Wno-misleading-indentation -o CMakeFiles/cmTryCompileExec449292287.dir/src.cxx.o -c /home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp/src.cxx
+/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp/src.cxx:1:0: warning: ignoring #pragma   [-Wunknown-pragmas]
+ #pragma
+ ^
+cc1plus: warning: unrecognized command line option "-Wno-misleading-indentation" [enabled by default]
+Linking CXX executable cmTryCompileExec449292287
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec449292287.dir/link.txt --verbose=1
+/usr/bin/c++      -fsigned-char -W -Wall -Werror=return-type -Werror=address -Werror=sequence-point -Wformat -Werror=format-security   -Winit-self -Wpointer-arith  -Wsign-promo -Wno-narrowing -Wno-delete-non-virtual-dtor -Wno-comment -Wno-array-bounds -Wno-aggressive-loop-optimizations -fdiagnostics-show-option -Wno-long-long -pthread -fomit-frame-pointer -msse -msse2 -msse3 -ffunction-sections -Wno-shadow -Wno-unused -Wno-sign-compare -Wno-undef -Wno-missing-declarations -Wno-uninitialized -Wno-switch -Wno-parentheses -Wno-array-bounds -Wno-extra -Wno-deprecated-declarations  -O3 -DNDEBUG    CMakeFiles/cmTryCompileExec449292287.dir/src.cxx.o  -o cmTryCompileExec449292287 -rdynamic 
+make[1]: Leaving directory `/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp'
+
+===== END =====
+
+Determining if the include file linux/videodev.h exists failed with the following output:
+Change Dir: /home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp
+
+Run Build Command:make "cmTryCompileExec3056769134/fast"
+make -f CMakeFiles/cmTryCompileExec3056769134.dir/build.make CMakeFiles/cmTryCompileExec3056769134.dir/build
+make[1]: Entering directory `/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3056769134.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -fsigned-char -W -Wall -Werror=return-type -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wno-narrowing -Wno-comment -Wno-array-bounds -Wno-aggressive-loop-optimizations -fdiagnostics-show-option -Wno-long-long -pthread -fomit-frame-pointer -msse -msse2 -msse3 -ffunction-sections  -O3 -DNDEBUG   -o CMakeFiles/cmTryCompileExec3056769134.dir/CheckIncludeFile.c.o   -c /home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:28: fatal error: linux/videodev.h: No such file or directory
+ #include <linux/videodev.h>
+                            ^
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTryCompileExec3056769134.dir/CheckIncludeFile.c.o] Error 1
+make[1]: Leaving directory `/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp'
+make: *** [cmTryCompileExec3056769134/fast] Error 2
+
+
+Determining if the include file sys/videoio.h exists failed with the following output:
+Change Dir: /home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp
+
+Run Build Command:make "cmTryCompileExec2710771103/fast"
+make -f CMakeFiles/cmTryCompileExec2710771103.dir/build.make CMakeFiles/cmTryCompileExec2710771103.dir/build
+make[1]: Entering directory `/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2710771103.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -fsigned-char -W -Wall -Werror=return-type -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wno-narrowing -Wno-comment -Wno-array-bounds -Wno-aggressive-loop-optimizations -fdiagnostics-show-option -Wno-long-long -pthread -fomit-frame-pointer -msse -msse2 -msse3 -ffunction-sections  -O3 -DNDEBUG   -o CMakeFiles/cmTryCompileExec2710771103.dir/CheckIncludeFile.c.o   -c /home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:25: fatal error: sys/videoio.h: No such file or directory
+ #include <sys/videoio.h>
+                         ^
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTryCompileExec2710771103.dir/CheckIncludeFile.c.o] Error 1
+make[1]: Leaving directory `/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp'
+make: *** [cmTryCompileExec2710771103/fast] Error 2
+
+
+Build output check failed:
+    Regex: 'unrecognized .*option'
+    Output line: 'cc1plus: warning: unrecognized command line option "-Wno-unused-private-field" [enabled by default]'
+Compilation failed:
+    source file: '/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp/src.cxx'
+    check option: ' -Wno-unused-private-field'
+===== BUILD LOG =====
+Change Dir: /home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp
+
+Run Build Command:make "cmTryCompileExec3269522153/fast"
+make -f CMakeFiles/cmTryCompileExec3269522153.dir/build.make CMakeFiles/cmTryCompileExec3269522153.dir/build
+make[1]: Entering directory `/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec3269522153.dir/src.cxx.o
+/usr/bin/c++    -fsigned-char -W -Wall -Werror=return-type -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wno-narrowing -Wno-delete-non-virtual-dtor -Wno-comment -Wno-array-bounds -Wno-aggressive-loop-optimizations -fdiagnostics-show-option -Wno-long-long -pthread -fomit-frame-pointer -msse -msse2 -msse3 -ffunction-sections  -O3 -DNDEBUG   -Wno-unused-private-field -o CMakeFiles/cmTryCompileExec3269522153.dir/src.cxx.o -c /home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp/src.cxx
+/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp/src.cxx:1:0: warning: ignoring #pragma   [-Wunknown-pragmas]
+ #pragma
+ ^
+cc1plus: warning: unrecognized command line option "-Wno-unused-private-field" [enabled by default]
+Linking CXX executable cmTryCompileExec3269522153
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3269522153.dir/link.txt --verbose=1
+/usr/bin/c++      -fsigned-char -W -Wall -Werror=return-type -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wno-narrowing -Wno-delete-non-virtual-dtor -Wno-comment -Wno-array-bounds -Wno-aggressive-loop-optimizations -fdiagnostics-show-option -Wno-long-long -pthread -fomit-frame-pointer -msse -msse2 -msse3 -ffunction-sections  -O3 -DNDEBUG    CMakeFiles/cmTryCompileExec3269522153.dir/src.cxx.o  -o cmTryCompileExec3269522153 -rdynamic 
+make[1]: Leaving directory `/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp'
+
+===== END =====
+
+Determining if the include file linux/videodev.h exists failed with the following output:
+Change Dir: /home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp
+
+Run Build Command:make "cmTryCompileExec3936129408/fast"
+make -f CMakeFiles/cmTryCompileExec3936129408.dir/build.make CMakeFiles/cmTryCompileExec3936129408.dir/build
+make[1]: Entering directory `/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3936129408.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -fsigned-char -W -Wall -Werror=return-type -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wno-narrowing -Wno-comment -Wno-array-bounds -Wno-aggressive-loop-optimizations -fdiagnostics-show-option -Wno-long-long -pthread -fomit-frame-pointer -msse -msse2 -msse3 -ffunction-sections  -O3 -DNDEBUG   -o CMakeFiles/cmTryCompileExec3936129408.dir/CheckIncludeFile.c.o   -c /home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:28: fatal error: linux/videodev.h: No such file or directory
+ #include <linux/videodev.h>
+                            ^
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTryCompileExec3936129408.dir/CheckIncludeFile.c.o] Error 1
+make[1]: Leaving directory `/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp'
+make: *** [cmTryCompileExec3936129408/fast] Error 2
+
+
+Determining if the include file sys/videoio.h exists failed with the following output:
+Change Dir: /home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp
+
+Run Build Command:make "cmTryCompileExec2914196855/fast"
+make -f CMakeFiles/cmTryCompileExec2914196855.dir/build.make CMakeFiles/cmTryCompileExec2914196855.dir/build
+make[1]: Entering directory `/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2914196855.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -fsigned-char -W -Wall -Werror=return-type -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wno-narrowing -Wno-comment -Wno-array-bounds -Wno-aggressive-loop-optimizations -fdiagnostics-show-option -Wno-long-long -pthread -fomit-frame-pointer -msse -msse2 -msse3 -ffunction-sections  -O3 -DNDEBUG   -o CMakeFiles/cmTryCompileExec2914196855.dir/CheckIncludeFile.c.o   -c /home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:25: fatal error: sys/videoio.h: No such file or directory
+ #include <sys/videoio.h>
+                         ^
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTryCompileExec2914196855.dir/CheckIncludeFile.c.o] Error 1
+make[1]: Leaving directory `/home/mahi/labs/NFIQ2/NFIQ2/libOpenCV/CMakeFiles/CMakeTmp'
+make: *** [cmTryCompileExec2914196855/fast] Error 2
+
+
