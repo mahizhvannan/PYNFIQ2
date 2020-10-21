@@ -487,3 +487,28 @@ extern "C" unsigned int sub(const unsigned char* raw, int len, int width,int hei
 	return qualityScore;
 }
 
+extern "C"{
+	extern NFIQ::NFIQ2Algorithm* init (){
+		// function just to load random forrest model
+		return new NFIQ::NFIQ2Algorithm();
+	}
+
+	extern unsigned int get_score(NFIQ::NFIQ2Algorithm* nfiq2,const unsigned char* raw, int len, int width,int height, int dpi){
+		// std::cout<<"Here.";
+		bool bOutputSpeed = false;
+		bool bOutputFeatureData = false;
+		// NFIQ::NFIQ2Algorithm lnfiq2;
+		NFIQ::FingerprintImageData rawImage(raw,len,width,height,1,dpi);
+		std::list<NFIQ::ActionableQualityFeedback> actionableQuality;
+		std::list<NFIQ::QualityFeatureData> featureVector;
+		std::list<NFIQ::QualityFeatureSpeed> featureTimings;
+		// std::cout<<(typeid(nfiq2)==typeid(lnfiq2));
+		unsigned int qualityScore = nfiq2->computeQualityScore(
+		rawImage, 
+		true, actionableQuality, 
+		bOutputFeatureData, featureVector,
+		bOutputSpeed, featureTimings);
+		return qualityScore;
+	}
+
+}

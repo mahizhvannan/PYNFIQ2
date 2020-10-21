@@ -31,6 +31,7 @@ NFIQ2Algorithm::NFIQ2Algorithm()
 {
 	// init RF module that takes some time to load the parameters
 	m_RandomForestML.initModule();
+	std::cout<<"CPP NFIQ2 module init sucess."<<"\n";
 }
 
 NFIQ2Algorithm::~NFIQ2Algorithm()
