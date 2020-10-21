@@ -3,6 +3,7 @@
 *.jpg
 *.a
 *.so
+!NFIQ2/NFIQ2/NFIQ2Algorithm/lib/libnfiq2.so
 bin
 *.zip
 *.d
