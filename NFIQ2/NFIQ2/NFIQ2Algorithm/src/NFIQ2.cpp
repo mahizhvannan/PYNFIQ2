@@ -4,7 +4,8 @@
 #include <iomanip>
 #include <list>
 #include <fstream>
-
+#include <glib.h>
+#include <glib/gi18n.h>
 #include "include/NFIQException.h"
 #include "include/Timer.hpp"
 #include "include/FingerprintImageData.h"
@@ -49,348 +50,350 @@ void printUsage()
 }
 
 
-std::vector<std::string> getFileContent(const std::string & fileName)
-{
-	std::vector<std::string> vecLines;
+// std::vector<std::string> getFileContent(const std::string & fileName)
+// {
+// 	std::vector<std::string> vecLines;
 
-	bool success = false;
-	std::string line = "";
-	std::ifstream ifs(fileName.c_str(), std::ios::in);
-	if (ifs.is_open())
-	{
-		while (!ifs.eof())
-		{
-			getline(ifs, line);
-			vecLines.push_back(line);
-		}
-		success = !ifs.bad(); // badbit is set if read was incomplete or failed
-		ifs.close();
-	}
-	else
-		throw NFIQ::NFIQException(NFIQ::e_Error_CannotReadFromFile);
+// 	bool success = false;
+// 	std::string line = "";
+// 	std::ifstream ifs(fileName.c_str(), std::ios::in);
+// 	if (ifs.is_open())
+// 	{
+// 		while (!ifs.eof())
+// 		{
+// 			getline(ifs, line);
+// 			vecLines.push_back(line);
+// 		}
+// 		success = !ifs.bad(); // badbit is set if read was incomplete or failed
+// 		ifs.close();
+// 	}
+// 	else
+// 		throw NFIQ::NFIQException(NFIQ::e_Error_CannotReadFromFile);
 
-	if (!success)
-		throw NFIQ::NFIQException(NFIQ::e_Error_CannotReadFromFile);
+// 	if (!success)
+// 		throw NFIQ::NFIQException(NFIQ::e_Error_CannotReadFromFile);
 
-	return vecLines;
-}
+// 	return vecLines;
+// }
 
-int executeRunModeSingle(std::string fpImagePath, std::string imageFormat, bool bOutputFeatureData, bool bOutputSpeed)
-{
-	try
-	{
-		std::cout << "NFIQ2: Compute quality score for fingerprint image " << fpImagePath << std::endl;
+// int executeRunModeSingle(std::string fpImagePath, std::string imageFormat, bool bOutputFeatureData, bool bOutputSpeed)
+// {
+// 	try
+// 	{
+// 		std::cout << "NFIQ2: Compute quality score for fingerprint image " << fpImagePath << std::endl;
 		
-		// read fingerprint image
-		NFIQ::FingerprintImageData fpImage;
-		fpImage.readFromFile(fpImagePath);
-		NFIQ::FingerprintImageData rawImage;
-		if (imageFormat.compare("BMP") == 0)
-			rawImage.fromBMP(fpImage);
-		else if (imageFormat.compare("WSQ") == 0)
-			rawImage.fromWSQ(fpImage);
-		else
-		{
-			std::cerr << "ERROR => Unknown image format specified" << std::endl;
-			return -1;
-		}
+// 		// read fingerprint image
+// 		NFIQ::FingerprintImageData fpImage;
+// 		fpImage.readFromFile(fpImagePath);
+// 		NFIQ::FingerprintImageData rawImage;
+// 		if (imageFormat.compare("BMP") == 0)
+// 			rawImage.fromBMP(fpImage);
+// 		else if (imageFormat.compare("WSQ") == 0)
+// 			rawImage.fromWSQ(fpImage);
+// 		else
+// 		{
+// 			std::cerr << "ERROR => Unknown image format specified" << std::endl;
+// 			return -1;
+// 		}
 
-		// start timer for initialization routine
-		NFIQ::Timer timerInit;
-		double timeInit = 0.0;
-		timerInit.startTimer();
+// 		// start timer for initialization routine
+// 		NFIQ::Timer timerInit;
+// 		double timeInit = 0.0;
+// 		timerInit.startTimer();
 
-		// do initialization
-		NFIQ::NFIQ2Algorithm nfiq2;
-		std::list<NFIQ::ActionableQualityFeedback> actionableQuality;
-		timeInit = timerInit.endTimerAndGetElapsedTime();
+// 		// do initialization
+// 		NFIQ::NFIQ2Algorithm nfiq2;
+// 		std::list<NFIQ::ActionableQualityFeedback> actionableQuality;
+// 		timeInit = timerInit.endTimerAndGetElapsedTime();
 
-		std::cout << "       Time needed for initialization of module: " << std::setprecision(3) << std::fixed << timeInit << " ms" << std::endl;
+// 		std::cout << "       Time needed for initialization of module: " << std::setprecision(3) << std::fixed << timeInit << " ms" << std::endl;
 
-		// start timer for quality computation
-		NFIQ::Timer timer;
-		double time = 0.0;
-		timer.startTimer();
+// 		// start timer for quality computation
+// 		NFIQ::Timer timer;
+// 		double time = 0.0;
+// 		timer.startTimer();
 
-		// compute quality now
-		// call wrapper class with fingerprint image to get score
-		// input is always raw image with set image parameters
-		std::list<NFIQ::QualityFeatureData> featureVector;
-		std::list<NFIQ::QualityFeatureSpeed> featureTimings;
-		unsigned int qualityScore = nfiq2.computeQualityScore(
-			rawImage, 
-			true, actionableQuality, // always return actionable quality
-			bOutputFeatureData, featureVector,
-			bOutputSpeed, featureTimings);
+// 		// compute quality now
+// 		// call wrapper class with fingerprint image to get score
+// 		// input is always raw image with set image parameters
+// 		std::list<NFIQ::QualityFeatureData> featureVector;
+// 		std::list<NFIQ::QualityFeatureSpeed> featureTimings;
+// 		unsigned char fjfxTemplateData[4096];
+// 		unsigned int qualityScore = nfiq2.computeQualityScore(
+// 			rawImage, 
+// 			true, actionableQuality, // always return actionable quality
+// 			bOutputFeatureData, featureVector,
+// 			bOutputSpeed, featureTimings,fjfxTemplateData);
 
-		// get elapsed time
-		time = timer.endTimerAndGetElapsedTime();
+// 		// get elapsed time
+// 		time = timer.endTimerAndGetElapsedTime();
 
-		if (bOutputFeatureData)
-		{
-			std::cout << std::endl << "NFIQ2: Computed quality feature values:" << std::endl;
-			std::list<NFIQ::QualityFeatureData>::iterator it;
-			for (it = featureVector.begin(); it != featureVector.end(); ++it)
-				std::cout << "  " << it->featureID << ": " << std::setprecision(3) << it->featureDataDouble << std::endl;
-		}
+// 		if (bOutputFeatureData)
+// 		{
+// 			std::cout << std::endl << "NFIQ2: Computed quality feature values:" << std::endl;
+// 			std::list<NFIQ::QualityFeatureData>::iterator it;
+// 			for (it = featureVector.begin(); it != featureVector.end(); ++it)
+// 				std::cout << "  " << it->featureID << ": " << std::setprecision(3) << it->featureDataDouble << std::endl;
+// 		}
 
-		if (bOutputSpeed)
-		{
-			std::cout << std::endl << "NFIQ2: Computed quality feature speed values:" << std::endl;
-			std::list<NFIQ::QualityFeatureSpeed>::iterator it;
-			for (it = featureTimings.begin(); it != featureTimings.end(); ++it)
-			{
-				std::cout << "  ";
-				if (it->featureIDGroup != "")
-					std::cout << it->featureIDGroup << " (";
-				std::list<std::string>::iterator it_ids;
-				unsigned int k = 0;
-				for (it_ids = it->featureIDs.begin(); it_ids != it->featureIDs.end(); ++it_ids)
-				{
-					std::cout << *it_ids;
-					if (k != (it->featureIDs.size() - 1))
-						std::cout << ", ";
-					k++;
-				}
-				if (it->featureIDGroup != "")
-					std::cout << ")";
-				std::cout << ": " << std::setprecision(3) << it->featureSpeed << " ms" << std::endl;
-			}
-		}
+// 		if (bOutputSpeed)
+// 		{
+// 			std::cout << std::endl << "NFIQ2: Computed quality feature speed values:" << std::endl;
+// 			std::list<NFIQ::QualityFeatureSpeed>::iterator it;
+// 			for (it = featureTimings.begin(); it != featureTimings.end(); ++it)
+// 			{
+// 				std::cout << "  ";
+// 				if (it->featureIDGroup != "")
+// 					std::cout << it->featureIDGroup << " (";
+// 				std::list<std::string>::iterator it_ids;
+// 				unsigned int k = 0;
+// 				for (it_ids = it->featureIDs.begin(); it_ids != it->featureIDs.end(); ++it_ids)
+// 				{
+// 					std::cout << *it_ids;
+// 					if (k != (it->featureIDs.size() - 1))
+// 						std::cout << ", ";
+// 					k++;
+// 				}
+// 				if (it->featureIDGroup != "")
+// 					std::cout << ")";
+// 				std::cout << ": " << std::setprecision(3) << it->featureSpeed << " ms" << std::endl;
+// 			}
+// 		}
 
-		std::cout << std::endl << "NFIQ2: Achieved quality score: " << qualityScore << std::endl;
-		std::cout << "       Time needed for quality score computation: " << std::setprecision(3) << std::fixed << time << " ms" << std::endl;
+// 		std::cout << std::endl << "NFIQ2: Achieved quality score: " << qualityScore << std::endl;
+// 		std::cout << "       Time needed for quality score computation: " << std::setprecision(3) << std::fixed << time << " ms" << std::endl;
 
-		if (actionableQuality.size() > 0 && bOutputFeatureData)
-		{
-			std::list<NFIQ::ActionableQualityFeedback>::iterator it;
-			for (it = actionableQuality.begin(); it != actionableQuality.end(); ++it)
-			{
-				std::cout << "       Actionable quality (" << it->identifier << "): " << it->actionableQualityValue << std::endl;
-			}
-		}
-	}
-	catch (NFIQException& ex)
-	{
-		// exceptions may occur e.g. if fingerprint image cannot be read or parsed
-		std::cerr << "ERROR => Return code [" << ex.getReturnCode() << "]: " << ex.getErrorMessage() << std::endl;
-		return -1;
-	}
-	return 0;
-}
+// 		if (actionableQuality.size() > 0 && bOutputFeatureData)
+// 		{
+// 			std::list<NFIQ::ActionableQualityFeedback>::iterator it;
+// 			for (it = actionableQuality.begin(); it != actionableQuality.end(); ++it)
+// 			{
+// 				std::cout << "       Actionable quality (" << it->identifier << "): " << it->actionableQualityValue << std::endl;
+// 			}
+// 		}
+// 	}
+// 	catch (NFIQException& ex)
+// 	{
+// 		// exceptions may occur e.g. if fingerprint image cannot be read or parsed
+// 		std::cerr << "ERROR => Return code [" << ex.getReturnCode() << "]: " << ex.getErrorMessage() << std::endl;
+// 		return -1;
+// 	}
+// 	return 0;
+// }
 
-int executeRunModeBatch(std::string fpImageListPath, std::string imageFormat, std::string resultListPath,
-						bool bOutputFeatureData, bool bOutputSpeed, std::string speedOutputPath)
-{
-	try
-	{
-		if (imageFormat.compare("BMP") != 0 && imageFormat.compare("WSQ") != 0)
-		{
-			std::cerr << "ERROR => Unknown image format specified" << std::endl;
-			return -1;
-		}
+// int executeRunModeBatch(std::string fpImageListPath, std::string imageFormat, std::string resultListPath,
+// 						bool bOutputFeatureData, bool bOutputSpeed, std::string speedOutputPath)
+// {
+// 	try
+// 	{
+// 		if (imageFormat.compare("BMP") != 0 && imageFormat.compare("WSQ") != 0)
+// 		{
+// 			std::cerr << "ERROR => Unknown image format specified" << std::endl;
+// 			return -1;
+// 		}
 
-		std::cout << "NFIQ2: Compute quality score for fingerprint images in list " << fpImageListPath << std::endl;
+// 		std::cout << "NFIQ2: Compute quality score for fingerprint images in list " << fpImageListPath << std::endl;
 
-		// read all filenames from input file list
-		std::vector<std::string> vecLines = getFileContent(fpImageListPath);
+// 		// read all filenames from input file list
+// 		std::vector<std::string> vecLines = getFileContent(fpImageListPath);
 
-		// create result file and header
-		std::ofstream ofs(resultListPath.c_str());
-		if (!ofs.is_open())
-		{
-			std::cerr << "ERROR => Cannot create output file " << resultListPath << std::endl;
-			return -1;
-		}
+// 		// create result file and header
+// 		std::ofstream ofs(resultListPath.c_str());
+// 		if (!ofs.is_open())
+// 		{
+// 			std::cerr << "ERROR => Cannot create output file " << resultListPath << std::endl;
+// 			return -1;
+// 		}
 
-		// create speed file and header
-		std::ofstream sfs;
-		if (bOutputSpeed)
-		{
-			sfs.open(speedOutputPath.c_str());
-			if (!sfs.is_open())
-			{
-				std::cerr << "ERROR => Cannot create speed output file " << speedOutputPath << std::endl;
-				return -1;
-			}
-		}
+// 		// create speed file and header
+// 		std::ofstream sfs;
+// 		if (bOutputSpeed)
+// 		{
+// 			sfs.open(speedOutputPath.c_str());
+// 			if (!sfs.is_open())
+// 			{
+// 				std::cerr << "ERROR => Cannot create speed output file " << speedOutputPath << std::endl;
+// 				return -1;
+// 			}
+// 		}
 
-		// start timer for initialization routine
-		NFIQ::Timer timerInit;
-		double timeInit = 0.0;
-		timerInit.startTimer();
+// 		// start timer for initialization routine
+// 		NFIQ::Timer timerInit;
+// 		double timeInit = 0.0;
+// 		timerInit.startTimer();
 
-		// do initialization
-		NFIQ::NFIQ2Algorithm nfiq2;
-		timeInit = timerInit.endTimerAndGetElapsedTime();
+// 		// do initialization
+// 		NFIQ::NFIQ2Algorithm nfiq2;
+// 		timeInit = timerInit.endTimerAndGetElapsedTime();
 
-		std::cout << "       Time needed for initialization of module: " << std::setprecision(3) << std::fixed << timeInit << " ms" << std::endl;
+// 		std::cout << "       Time needed for initialization of module: " << std::setprecision(3) << std::fixed << timeInit << " ms" << std::endl;
 
 
-		// header with data that is always present
-		ofs << "File name" << ";" << "NFIQ2 score";
+// 		// header with data that is always present
+// 		ofs << "File name" << ";" << "NFIQ2 score";
 
-		if (bOutputSpeed)
-		{		
-			// header for speed output file
-			sfs << "File name" << ";" << "NFIQ2 computation speed";
-		}
+// 		if (bOutputSpeed)
+// 		{		
+// 			// header for speed output file
+// 			sfs << "File name" << ";" << "NFIQ2 computation speed";
+// 		}
 
-		std::cout << "       Running batch computation ..." << std::endl;
+// 		std::cout << "       Running batch computation ..." << std::endl;
 
-		for (unsigned int i = 0; i < vecLines.size(); i++)
-		{
-			// read fingerprint image
-			NFIQ::FingerprintImageData rawImage;
-			try
-			{
-				NFIQ::FingerprintImageData fpImage;
-				fpImage.readFromFile(vecLines.at(i));
-				if (imageFormat.compare("BMP") == 0)
-					rawImage.fromBMP(fpImage);
-				else if (imageFormat.compare("WSQ") == 0)
-					rawImage.fromWSQ(fpImage);
-			}
-			catch (NFIQException)
-			{
-				// do not quit if exception occurs, e.g. file not found or not readable
-				std::cout << "       " << vecLines.at(i) << ": NFIQ2 score = N/A" << std::endl;
+// 		for (unsigned int i = 0; i < vecLines.size(); i++)
+// 		{
+// 			// read fingerprint image
+// 			NFIQ::FingerprintImageData rawImage;
+// 			try
+// 			{
+// 				NFIQ::FingerprintImageData fpImage;
+// 				fpImage.readFromFile(vecLines.at(i));
+// 				if (imageFormat.compare("BMP") == 0)
+// 					rawImage.fromBMP(fpImage);
+// 				else if (imageFormat.compare("WSQ") == 0)
+// 					rawImage.fromWSQ(fpImage);
+// 			}
+// 			catch (NFIQException)
+// 			{
+// 				// do not quit if exception occurs, e.g. file not found or not readable
+// 				std::cout << "       " << vecLines.at(i) << ": NFIQ2 score = N/A" << std::endl;
 
-				// log score N/A to file (all other values are ignored)
-				if (i == 0)
-					ofs << std::endl; // finish header
-				ofs << vecLines.at(i) << ";";
-				ofs << "N/A";
-				ofs << std::endl;
+// 				// log score N/A to file (all other values are ignored)
+// 				if (i == 0)
+// 					ofs << std::endl; // finish header
+// 				ofs << vecLines.at(i) << ";";
+// 				ofs << "N/A";
+// 				ofs << std::endl;
 
-				// speed loggings, only N/A for overall time
-				if (bOutputSpeed)
-				{
-					if (i == 0)
-						sfs << std::endl; // finish header
-					sfs << vecLines.at(i) << ";";
-					sfs << "N/A";
-					sfs << std::endl;
-				}
+// 				// speed loggings, only N/A for overall time
+// 				if (bOutputSpeed)
+// 				{
+// 					if (i == 0)
+// 						sfs << std::endl; // finish header
+// 					sfs << vecLines.at(i) << ";";
+// 					sfs << "N/A";
+// 					sfs << std::endl;
+// 				}
 
-				continue;
- 			}
+// 				continue;
+//  			}
 
-			// start timer for quality computation
-			NFIQ::Timer timer;
-			double time = 0.0;
-			timer.startTimer();
+// 			// start timer for quality computation
+// 			NFIQ::Timer timer;
+// 			double time = 0.0;
+// 			timer.startTimer();
 			
-			// compute quality now
-			// call wrapper class with fingerprint image to get score
-			// input is always raw image with set image parameters
-			std::list<NFIQ::ActionableQualityFeedback> actionableQuality;
-			std::list<NFIQ::QualityFeatureData> featureVector;
-			std::list<NFIQ::QualityFeatureSpeed> featureTimings;
-			unsigned int qualityScore = nfiq2.computeQualityScore(
-				rawImage, 
-				true, actionableQuality, 
-				bOutputFeatureData, featureVector,
-				bOutputSpeed, featureTimings);
+// 			// compute quality now
+// 			// call wrapper class with fingerprint image to get score
+// 			// input is always raw image with set image parameters
+// 			std::list<NFIQ::ActionableQualityFeedback> actionableQuality;
+// 			std::list<NFIQ::QualityFeatureData> featureVector;
+// 			std::list<NFIQ::QualityFeatureSpeed> featureTimings;
+// 			unsigned char fjfxTemplateData[4096];
+// 			unsigned int qualityScore = nfiq2.computeQualityScore(
+// 				rawImage, 
+// 				true, actionableQuality, 
+// 				bOutputFeatureData, featureVector,
+// 				bOutputSpeed, featureTimings,fjfxTemplateData);
 
-			// get elapsed time
-			time = timer.endTimerAndGetElapsedTime();
+// 			// get elapsed time
+// 			time = timer.endTimerAndGetElapsedTime();
 
-			std::cout << "       " << vecLines.at(i) << ": NFIQ2 score = " << qualityScore << std::endl;
+// 			std::cout << "       " << vecLines.at(i) << ": NFIQ2 score = " << qualityScore << std::endl;
 
-			// finish header
-			if (i == 0)
-			{
-				// actionable quality feedback values, add to header
-				std::list<NFIQ::ActionableQualityFeedback>::iterator it_aq;
-				for (it_aq = actionableQuality.begin(); it_aq != actionableQuality.end(); ++it_aq)
-				{
-					ofs << ";" << it_aq->identifier;
-				}
+// 			// finish header
+// 			if (i == 0)
+// 			{
+// 				// actionable quality feedback values, add to header
+// 				std::list<NFIQ::ActionableQualityFeedback>::iterator it_aq;
+// 				for (it_aq = actionableQuality.begin(); it_aq != actionableQuality.end(); ++it_aq)
+// 				{
+// 					ofs << ";" << it_aq->identifier;
+// 				}
 
-				if (bOutputFeatureData)
-				{
-					// feature IDs need to be written to output now
-					std::list<NFIQ::QualityFeatureData>::iterator it;
-					for (it = featureVector.begin(); it != featureVector.end(); ++it)
-					{
-						ofs << ";" << it->featureID;
-					}
-				}
+// 				if (bOutputFeatureData)
+// 				{
+// 					// feature IDs need to be written to output now
+// 					std::list<NFIQ::QualityFeatureData>::iterator it;
+// 					for (it = featureVector.begin(); it != featureVector.end(); ++it)
+// 					{
+// 						ofs << ";" << it->featureID;
+// 					}
+// 				}
 
-				ofs << std::endl; // header is finished
+// 				ofs << std::endl; // header is finished
 
-				// finish header for speed output file
-				if (bOutputSpeed)
-				{
-					// feature IDs need to be written to output now
-					std::list<NFIQ::QualityFeatureSpeed>::iterator it;
-					for (it = featureTimings.begin(); it != featureTimings.end(); ++it)
-					{
-						sfs << ";" << it->featureIDGroup;
-					}
+// 				// finish header for speed output file
+// 				if (bOutputSpeed)
+// 				{
+// 					// feature IDs need to be written to output now
+// 					std::list<NFIQ::QualityFeatureSpeed>::iterator it;
+// 					for (it = featureTimings.begin(); it != featureTimings.end(); ++it)
+// 					{
+// 						sfs << ";" << it->featureIDGroup;
+// 					}
 
-					sfs << std::endl;
-				}
-			}
+// 					sfs << std::endl;
+// 				}
+// 			}
 
-			// log filename and NFIQ2 score
-			ofs << vecLines.at(i) << ";";
-			ofs << std::setprecision(5) << qualityScore;
+// 			// log filename and NFIQ2 score
+// 			ofs << vecLines.at(i) << ";";
+// 			ofs << std::setprecision(5) << qualityScore;
 
-			// log filename and NFIQ2 computation time
-			if (bOutputSpeed)
-			{
-				sfs << vecLines.at(i) << ";";
-				sfs << std::setprecision(3) << time;
-			}
+// 			// log filename and NFIQ2 computation time
+// 			if (bOutputSpeed)
+// 			{
+// 				sfs << vecLines.at(i) << ";";
+// 				sfs << std::setprecision(3) << time;
+// 			}
 			
-			// log actionable quality feedback
-			std::list<NFIQ::ActionableQualityFeedback>::iterator it_aq;
-			for (it_aq = actionableQuality.begin(); it_aq != actionableQuality.end(); ++it_aq)
-			{
-				ofs << ";" << std::setprecision(5) << it_aq->actionableQualityValue;
-			}
+// 			// log actionable quality feedback
+// 			std::list<NFIQ::ActionableQualityFeedback>::iterator it_aq;
+// 			for (it_aq = actionableQuality.begin(); it_aq != actionableQuality.end(); ++it_aq)
+// 			{
+// 				ofs << ";" << std::setprecision(5) << it_aq->actionableQualityValue;
+// 			}
 
-			if (bOutputFeatureData)
-			{
-				// log quality feature data
-				std::list<NFIQ::QualityFeatureData>::iterator it;
-				for (it = featureVector.begin(); it != featureVector.end(); ++it)
-				{
-					ofs << ";" << std::setprecision(5) << it->featureDataDouble;
-				}
-			}
+// 			if (bOutputFeatureData)
+// 			{
+// 				// log quality feature data
+// 				std::list<NFIQ::QualityFeatureData>::iterator it;
+// 				for (it = featureVector.begin(); it != featureVector.end(); ++it)
+// 				{
+// 					ofs << ";" << std::setprecision(5) << it->featureDataDouble;
+// 				}
+// 			}
 
-			if (bOutputSpeed)
-			{
-				std::list<NFIQ::QualityFeatureSpeed>::iterator it;
-				for (it = featureTimings.begin(); it != featureTimings.end(); ++it)
-				{
-					sfs << ";" << std::setprecision(3) << it->featureSpeed;
-				}
-			}
+// 			if (bOutputSpeed)
+// 			{
+// 				std::list<NFIQ::QualityFeatureSpeed>::iterator it;
+// 				for (it = featureTimings.begin(); it != featureTimings.end(); ++it)
+// 				{
+// 					sfs << ";" << std::setprecision(3) << it->featureSpeed;
+// 				}
+// 			}
 
-			ofs << std::endl;
-			if (bOutputSpeed)
-				sfs << std::endl;
-		}
+// 			ofs << std::endl;
+// 			if (bOutputSpeed)
+// 				sfs << std::endl;
+// 		}
 
-		std::cout << "       Batch computation done" << std::endl;
+// 		std::cout << "       Batch computation done" << std::endl;
 
-		ofs.close();
-		if (bOutputSpeed)
-			sfs.close();
-	}
-	catch (NFIQException& ex)
-	{
-		// exceptions may occur e.g. if fingerprint image cannot be read or parsed
-		std::cerr << "ERROR => Return code [" << ex.getReturnCode() << "]: " << ex.getErrorMessage() << std::endl;
-		return -1;
-	}
+// 		ofs.close();
+// 		if (bOutputSpeed)
+// 			sfs.close();
+// 	}
+// 	catch (NFIQException& ex)
+// 	{
+// 		// exceptions may occur e.g. if fingerprint image cannot be read or parsed
+// 		std::cerr << "ERROR => Return code [" << ex.getReturnCode() << "]: " << ex.getErrorMessage() << std::endl;
+// 		return -1;
+// 	}
 
-	return 0;
-}
+// 	return 0;
+// }
 
 int main(int argc, const char* argv[])
 {
@@ -417,7 +420,8 @@ int main(int argc, const char* argv[])
 			bool bOutputFeatureData = (std::string(argv[4]).compare("true") == 0 ? true : false);
 			bool bOutputSpeed = (std::string(argv[5]).compare("true") == 0 ? true : false);
 
-			return executeRunModeSingle(fpImagePath, imageFormat, bOutputFeatureData, bOutputSpeed);
+			// return executeRunModeSingle(fpImagePath, imageFormat, bOutputFeatureData, bOutputSpeed);
+			return 1;
 		}
 		else if (runMode == "BATCH")
 		{
@@ -444,8 +448,9 @@ int main(int argc, const char* argv[])
 				speedOutputPath = std::string(argv[7]);
 			}
 
-			return executeRunModeBatch(fpImageListPath, imageFormat, resultListPath,
-				bOutputFeatureData, bOutputSpeed, speedOutputPath);			
+			// return executeRunModeBatch(fpImageListPath, imageFormat, resultListPath,
+			// 	bOutputFeatureData, bOutputSpeed, speedOutputPath);	
+			return 0;		
 		}
 		else
 		{
@@ -463,29 +468,30 @@ int main(int argc, const char* argv[])
 	return 0;
 }
 // extern "C" NFIQ::NFIQ2Algorithm pnfiq2;
-extern "C" unsigned int sub(const unsigned char* raw, int len, int width,int height, int dpi){
-	// std::cout<<fpImageListPath;
-	// for(int i=0;i<len;i++){
-	// 	std::cout<<raw[i]<<i<<"\n";
-	// }
-	// std::cout<<"CPP Print "<<len<<' '<<width<<" "<<height<<" "<<dpi;
-	bool bOutputSpeed = false;
-	bool bOutputFeatureData = false;
-	NFIQ::NFIQ2Algorithm nfiq2;
-	NFIQ::FingerprintImageData rawImage(raw,len,width,height,1,dpi);
-	// std::cout<<"\nCPP Print "<<"Image object formed";
-	std::list<NFIQ::ActionableQualityFeedback> actionableQuality;
-	std::list<NFIQ::QualityFeatureData> featureVector;
-	std::list<NFIQ::QualityFeatureSpeed> featureTimings;
-	// std::cout<<"\nCPP Print "<<"Other objects formed";
-	unsigned int qualityScore = nfiq2.computeQualityScore(
-		rawImage, 
-		true, actionableQuality, 
-		bOutputFeatureData, featureVector,
-		bOutputSpeed, featureTimings);
-	// std::cout<<"\nCPP Print "<<"Score"<<qualityScore;
-	return qualityScore;
-}
+// extern "C" unsigned int sub(const unsigned char* raw, int len, int width,int height, int dpi){
+// 	// std::cout<<fpImageListPath;
+// 	// for(int i=0;i<len;i++){
+// 	// 	std::cout<<raw[i]<<i<<"\n";
+// 	// }
+// 	// std::cout<<"CPP Print "<<len<<' '<<width<<" "<<height<<" "<<dpi;
+// 	bool bOutputSpeed = false;
+// 	bool bOutputFeatureData = false;
+// 	NFIQ::NFIQ2Algorithm nfiq2;
+// 	NFIQ::FingerprintImageData rawImage(raw,len,width,height,1,dpi);
+// 	// std::cout<<"\nCPP Print "<<"Image object formed";
+// 	std::list<NFIQ::ActionableQualityFeedback> actionableQuality;
+// 	std::list<NFIQ::QualityFeatureData> featureVector;
+// 	std::list<NFIQ::QualityFeatureSpeed> featureTimings;
+// 	// std::cout<<"\nCPP Print "<<"Other objects formed";
+// 	unsigned char fjfxTemplateData[4096];
+// 	unsigned int qualityScore = nfiq2.computeQualityScore(
+// 		rawImage, 
+// 		true, actionableQuality, 
+// 		bOutputFeatureData, featureVector,
+// 		bOutputSpeed, featureTimings,fjfxTemplateData);
+// 	// std::cout<<"\nCPP Print "<<"Score"<<qualityScore;
+// 	return qualityScore;
+// }
 
 extern "C"{
 	extern NFIQ::NFIQ2Algorithm* init (){
@@ -493,28 +499,31 @@ extern "C"{
 		return new NFIQ::NFIQ2Algorithm();
 	}
 
-	extern unsigned int get_score(NFIQ::NFIQ2Algorithm* nfiq2,const unsigned char* raw, int len, int width,int height, int dpi){
-		// std::cout<<"Here.";
-		bool bOutputSpeed = false;
-		bool bOutputFeatureData = false;
-		// NFIQ::NFIQ2Algorithm lnfiq2;
-		NFIQ::FingerprintImageData rawImage(raw,len,width,height,1,dpi);
-		std::list<NFIQ::ActionableQualityFeedback> actionableQuality;
-		std::list<NFIQ::QualityFeatureData> featureVector;
-		std::list<NFIQ::QualityFeatureSpeed> featureTimings;
-		// std::cout<<(typeid(nfiq2)==typeid(lnfiq2));
-		unsigned int qualityScore = nfiq2->computeQualityScore(
-		rawImage, 
-		true, actionableQuality, 
-		bOutputFeatureData, featureVector,
-		bOutputSpeed, featureTimings);
-		return qualityScore;
-	}
+	// extern unsigned int get_score(NFIQ::NFIQ2Algorithm* nfiq2,const unsigned char* raw, int len, int width,int height, int dpi){
+	// 	// std::cout<<"Here.";
+	// 	bool bOutputSpeed = false;
+	// 	bool bOutputFeatureData = false;
+	// 	// NFIQ::NFIQ2Algorithm lnfiq2;
+	// 	NFIQ::FingerprintImageData rawImage(raw,len,width,height,1,dpi);
+	// 	std::list<NFIQ::ActionableQualityFeedback> actionableQuality;
+	// 	std::list<NFIQ::QualityFeatureData> featureVector;
+	// 	std::list<NFIQ::QualityFeatureSpeed> featureTimings;
+	// 	// std::cout<<(typeid(nfiq2)==typeid(lnfiq2));
+	// 	unsigned char fjfxTemplateData[4096];
+	// 	unsigned int qualityScore = nfiq2->computeQualityScore(
+	// 	rawImage, 
+	// 	true, actionableQuality, 
+	// 	bOutputFeatureData, featureVector,
+	// 	bOutputSpeed, featureTimings,fjfxTemplateData);
+	// 	return qualityScore;
+	// }
 
 	struct Features{
 		unsigned int qualityScore;
 		double outFeature[73]={0.0};
 		char* outName[73];
+		char* fjfxtemplate;
+		int fjfxtemplate_length;
 	};
 
 
@@ -528,14 +537,22 @@ extern "C"{
 		std::list<NFIQ::QualityFeatureData> featureVector;
 		std::list<NFIQ::QualityFeatureSpeed> featureTimings;
 		// std::cout<<(typeid(nfiq2)==typeid(lnfiq2));
+		// unsigned char fjfxTemplateData[4096];
+		unsigned char fjfxTemplateDataPointer[4096];
+		size_t fjfxSize;
 		unsigned int qualityScore = nfiq2->computeQualityScore(
 		rawImage, 
 		true, actionableQuality, 
 		bOutputFeatureData, featureVector,
-		bOutputSpeed, featureTimings);
+		bOutputSpeed, featureTimings,fjfxTemplateDataPointer,fjfxSize);
+		// std::cout<<fjfxSize<<std::endl;
 		(*fet).qualityScore=qualityScore;
 		// std::cout<<featureVector.size();
+		(*fet).fjfxtemplate_length = static_cast<int>(fjfxSize);
+		(*fet).fjfxtemplate= new char[(*fet).fjfxtemplate_length];
+		// memcpy((*fet).fjfxtemplate,fjfxTemplateDataPointer,(*fet).fjfxtemplate_length);
 		int cnt=0;
+		(*fet).fjfxtemplate=g_base64_encode (fjfxTemplateDataPointer, (*fet).fjfxtemplate_length);
 		if(bOutputFeatureData)
 		{
 			std::list<NFIQ::QualityFeatureData>::iterator it;

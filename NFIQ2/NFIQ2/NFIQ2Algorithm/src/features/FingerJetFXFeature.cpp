@@ -1,10 +1,10 @@
 #include "FingerJetFXFeature.h"
 #include "include/NFIQException.h"
 #include "include/Timer.hpp"
-
+#include <iostream>
 #include <sstream>
 #include <string.h>
-
+using namespace std;
 #define CBEFF (0x00330502)
 
 using namespace NFIQ;

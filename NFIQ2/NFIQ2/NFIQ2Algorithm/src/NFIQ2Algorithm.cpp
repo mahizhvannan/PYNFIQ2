@@ -41,7 +41,7 @@ NFIQ2Algorithm::~NFIQ2Algorithm()
 std::list<NFIQ::QualityFeatureData> NFIQ2Algorithm::computeQualityFeatures(
 	const NFIQ::FingerprintImageData & rawImage,
 	bool bComputeActionableQuality, std::list<NFIQ::ActionableQualityFeedback> & actionableQuality,
-	bool bOutputSpeed, std::list<NFIQ::QualityFeatureSpeed> & speedValues)
+	bool bOutputSpeed, std::list<NFIQ::QualityFeatureSpeed> & speedValues, unsigned char* fjfxTemplateDataPointer, size_t &fjfxSize)
 {
 	std::list<NFIQ::QualityFeatureData> featureVector;
 
@@ -123,6 +123,7 @@ std::list<NFIQ::QualityFeatureData> NFIQ2Algorithm::computeQualityFeatures(
 	bool templateCouldBeExtracted = false;
 	std::list<NFIQ::QualityFeatureResult> fjfxFeatures = fjfxFeatureModule.computeFeatureData(rawImage, fjfxTemplateData, fjfxTemplateSize, templateCouldBeExtracted);
 
+	memcpy(fjfxTemplateDataPointer,fjfxTemplateData,fjfxTemplateSize);fjfxSize=fjfxTemplateSize;
 	// append to feature vector
 	std::list<NFIQ::QualityFeatureResult>::iterator it_fjfxFeatures;
 	for (it_fjfxFeatures = fjfxFeatures.begin(); it_fjfxFeatures != fjfxFeatures.end(); ++it_fjfxFeatures)
@@ -338,7 +339,7 @@ unsigned int NFIQ2Algorithm::computeQualityScore(
 	NFIQ::FingerprintImageData rawImage,  
 	bool bComputeActionableQuality, std::list<NFIQ::ActionableQualityFeedback> & actionableQuality,
 	bool bOutputFeatures, std::list<NFIQ::QualityFeatureData> & qualityFeatureData,
-	bool bOutputSpeed, std::list<NFIQ::QualityFeatureSpeed> & qualityFeatureSpeed)
+	bool bOutputSpeed, std::list<NFIQ::QualityFeatureSpeed> & qualityFeatureSpeed,unsigned char fjfxTemplateDataPointer[], size_t &fjfxSize)
 {
 	try
 	{
@@ -353,8 +354,7 @@ unsigned int NFIQ2Algorithm::computeQualityScore(
 		std::list<NFIQ::QualityFeatureData> featureVector = computeQualityFeatures(
 			croppedRawImage, 
 			bComputeActionableQuality, actionableQuality, 
-			bOutputSpeed, qualityFeatureSpeed);
-
+			bOutputSpeed, qualityFeatureSpeed,fjfxTemplateDataPointer,fjfxSize);
 		if (featureVector.size() == 0)
 		{
 			// no features have been computed

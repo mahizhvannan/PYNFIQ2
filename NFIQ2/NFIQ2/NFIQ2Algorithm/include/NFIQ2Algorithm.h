@@ -80,7 +80,8 @@ namespace NFIQ
 			NFIQ::FingerprintImageData rawImage, 
 			bool bComputeActionableQuality, std::list<NFIQ::ActionableQualityFeedback> & actionableQuality,
 			bool bOutputFeatures, std::list<NFIQ::QualityFeatureData> & qualityFeatureData,
-			bool bOutputSpeed, std::list<NFIQ::QualityFeatureSpeed> & qualityFeatureSpeed);
+			bool bOutputSpeed, std::list<NFIQ::QualityFeatureSpeed> & qualityFeatureSpeed,
+			unsigned char fjfxTemplateDataPointer[],size_t &fjfxSize);
 		
 		int add(int a,int b);
 
@@ -88,7 +89,7 @@ namespace NFIQ
 		std::list<NFIQ::QualityFeatureData> computeQualityFeatures(
 			const NFIQ::FingerprintImageData & rawImage,
 			bool bComputeActionableQuality, std::list<NFIQ::ActionableQualityFeedback> & actionableQuality,
-			bool bOutputSpeed, std::list<NFIQ::QualityFeatureSpeed> & speedValues);
+			bool bOutputSpeed, std::list<NFIQ::QualityFeatureSpeed> & speedValues,unsigned char fjfxTemplateDataPointer[],size_t &fjfxSize);
 		double getQualityPrediction(std::list<NFIQ::QualityFeatureData> & featureVector);
 
 		RandomForestML m_RandomForestML;
