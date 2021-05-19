@@ -382,7 +382,53 @@ unsigned int NFIQ2Algorithm::computeQualityScore(
 	}
 	return QUALITY_SCORE_NOT_AVAILABLE;
 }
+unsigned int NFIQ2Algorithm::getFeatures(
+	NFIQ::FingerprintImageData rawImage,  
+	bool bComputeActionableQuality, std::list<NFIQ::ActionableQualityFeedback> & actionableQuality,
+	bool bOutputFeatures, std::list<NFIQ::QualityFeatureData> & qualityFeatureData,
+	bool bOutputSpeed, std::list<NFIQ::QualityFeatureSpeed> & qualityFeatureSpeed,unsigned char fjfxTemplateDataPointer[], size_t &fjfxSize)
+{
+	try
+	{
 
+		// crop image (white line removal) and use it for feature computation
+		NFIQ::FingerprintImageData croppedRawImage = rawImage.removeWhiteFrameAroundFingerprint();
+
+		// --------------------------------------------------------
+		// compute quality features (including actionable feedback)
+		// --------------------------------------------------------
+
+		std::list<NFIQ::QualityFeatureData> featureVector = computeQualityFeatures(
+			croppedRawImage, 
+			bComputeActionableQuality, actionableQuality, 
+			bOutputSpeed, qualityFeatureSpeed,fjfxTemplateDataPointer,fjfxSize);
+		if (featureVector.size() == 0)
+		{
+			// no features have been computed
+			// return a score of 255 -> no prediction is conducted
+			return QUALITY_SCORE_NOT_AVAILABLE;
+		}
+
+		// ---------------------
+		// compute quality score
+		// ---------------------
+
+		// double qualityScore = getQualityPrediction(featureVector);
+
+		// return feature vector if requested
+		if (bOutputFeatures)
+			qualityFeatureData = featureVector;
+
+		return 0;
+	}
+	catch(...)
+	{
+		// any algorithmic exception is mapped to a quality score of 255
+		// representing "quality not able to be computed"
+		return QUALITY_SCORE_NOT_AVAILABLE;
+	}
+	return QUALITY_SCORE_NOT_AVAILABLE;
+}
 int NFIQ2Algorithm::add(int a,int b){
 		return a+b;
 }

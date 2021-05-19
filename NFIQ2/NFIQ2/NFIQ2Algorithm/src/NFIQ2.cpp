@@ -526,18 +526,18 @@ extern "C"{
 		int fjfxtemplate_length;
 	};
 
+	struct Fet{
+		double outFeature[73]={0.0};
+		char* outName[73];
+	};
+
 
 	extern void get_score_full(NFIQ::NFIQ2Algorithm* nfiq2,const unsigned char* raw, int len, int width,int height, int dpi,bool bOutputFeatureData,Features *fet){
-		// std::cout<<"Here.";
 		bool bOutputSpeed = false;
-		// bool bOutputFeatureData= true;
-		// NFIQ::NFIQ2Algorithm lnfiq2;
 		NFIQ::FingerprintImageData rawImage(raw,len,width,height,1,dpi);
 		std::list<NFIQ::ActionableQualityFeedback> actionableQuality;
 		std::list<NFIQ::QualityFeatureData> featureVector;
 		std::list<NFIQ::QualityFeatureSpeed> featureTimings;
-		// std::cout<<(typeid(nfiq2)==typeid(lnfiq2));
-		// unsigned char fjfxTemplateData[4096];
 		unsigned char fjfxTemplateDataPointer[4096];
 		size_t fjfxSize;
 		unsigned int qualityScore = nfiq2->computeQualityScore(
@@ -573,4 +573,42 @@ extern "C"{
 			}
 		}
 	}
+
+extern void get_features(NFIQ::NFIQ2Algorithm* nfiq2,const unsigned char* raw, int len, int width,int height, int dpi,bool bOutputFeatureData,Fet *fet){
+
+		bool bOutputSpeed = false;
+		NFIQ::FingerprintImageData rawImage(raw,len,width,height,1,dpi);
+		std::list<NFIQ::ActionableQualityFeedback> actionableQuality;
+		std::list<NFIQ::QualityFeatureData> featureVector;
+		std::list<NFIQ::QualityFeatureSpeed> featureTimings;
+
+		unsigned char fjfxTemplateDataPointer[4096];
+		size_t fjfxSize;
+		unsigned int qualityScore = nfiq2->getFeatures(
+		rawImage, 
+		true, actionableQuality, 
+		bOutputFeatureData, featureVector,
+		bOutputSpeed, featureTimings,fjfxTemplateDataPointer,fjfxSize);
+		int cnt=0;
+		if(bOutputFeatureData)
+		{
+			std::list<NFIQ::QualityFeatureData>::iterator it;
+			for (it = featureVector.begin(); it != featureVector.end(); ++it){
+				(*fet).outFeature[cnt]=it->featureDataDouble;
+				(*fet).outName[cnt]= new char[it->featureID.size()];
+				strcpy((*fet).outName[cnt],it->featureID.c_str());cnt++;
+				}
+			if (actionableQuality.size() > 0)
+			{
+				std::list<NFIQ::ActionableQualityFeedback>::iterator it;
+				for (it = actionableQuality.begin(); it != actionableQuality.end(); ++it)
+				{
+					(*fet).outFeature[cnt]=it->actionableQualityValue;
+					(*fet).outName[cnt]= new char[it->identifier.size()];
+					strcpy((*fet).outName[cnt],it->identifier.c_str());cnt++;
+				}
+			}
+		}
+	}
+
 }

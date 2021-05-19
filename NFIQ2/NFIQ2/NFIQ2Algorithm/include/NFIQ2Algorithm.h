@@ -82,6 +82,13 @@ namespace NFIQ
 			bool bOutputFeatures, std::list<NFIQ::QualityFeatureData> & qualityFeatureData,
 			bool bOutputSpeed, std::list<NFIQ::QualityFeatureSpeed> & qualityFeatureSpeed,
 			unsigned char fjfxTemplateDataPointer[],size_t &fjfxSize);
+
+		unsigned int getFeatures(
+			NFIQ::FingerprintImageData rawImage, 
+			bool bComputeActionableQuality, std::list<NFIQ::ActionableQualityFeedback> & actionableQuality,
+			bool bOutputFeatures, std::list<NFIQ::QualityFeatureData> & qualityFeatureData,
+			bool bOutputSpeed, std::list<NFIQ::QualityFeatureSpeed> & qualityFeatureSpeed,
+			unsigned char fjfxTemplateDataPointer[],size_t &fjfxSize);
 		
 		int add(int a,int b);
 

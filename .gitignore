@@ -8,3 +8,5 @@ bin
 *.zip
 *.d
 .vscode
+*.bmp
+libs/
