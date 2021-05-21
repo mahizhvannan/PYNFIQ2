@@ -548,27 +548,29 @@ extern "C"{
 		// std::cout<<fjfxSize<<std::endl;
 		(*fet).qualityScore=qualityScore;
 		// std::cout<<featureVector.size();
-		(*fet).fjfxtemplate_length = static_cast<int>(fjfxSize);
-		(*fet).fjfxtemplate= new char[(*fet).fjfxtemplate_length];
-		// memcpy((*fet).fjfxtemplate,fjfxTemplateDataPointer,(*fet).fjfxtemplate_length);
-		int cnt=0;
-		(*fet).fjfxtemplate=g_base64_encode (fjfxTemplateDataPointer, (*fet).fjfxtemplate_length);
-		if(bOutputFeatureData)
-		{
-			std::list<NFIQ::QualityFeatureData>::iterator it;
-			for (it = featureVector.begin(); it != featureVector.end(); ++it){
-				(*fet).outFeature[cnt]=it->featureDataDouble;
-				(*fet).outName[cnt]= new char[it->featureID.size()];
-				strcpy((*fet).outName[cnt],it->featureID.c_str());cnt++;
-				}
-			if (actionableQuality.size() > 0)
+		if(qualityScore<=100){
+			(*fet).fjfxtemplate_length = static_cast<int>(fjfxSize);
+			(*fet).fjfxtemplate= new char[(*fet).fjfxtemplate_length];
+			// memcpy((*fet).fjfxtemplate,fjfxTemplateDataPointer,(*fet).fjfxtemplate_length);
+			int cnt=0;
+			(*fet).fjfxtemplate=g_base64_encode (fjfxTemplateDataPointer, (*fet).fjfxtemplate_length);
+			if(bOutputFeatureData)
 			{
-				std::list<NFIQ::ActionableQualityFeedback>::iterator it;
-				for (it = actionableQuality.begin(); it != actionableQuality.end(); ++it)
+				std::list<NFIQ::QualityFeatureData>::iterator it;
+				for (it = featureVector.begin(); it != featureVector.end(); ++it){
+					(*fet).outFeature[cnt]=it->featureDataDouble;
+					(*fet).outName[cnt]= new char[it->featureID.size()];
+					strcpy((*fet).outName[cnt],it->featureID.c_str());cnt++;
+					}
+				if (actionableQuality.size() > 0)
 				{
-					(*fet).outFeature[cnt]=it->actionableQualityValue;
-					(*fet).outName[cnt]= new char[it->identifier.size()];
-					strcpy((*fet).outName[cnt],it->identifier.c_str());cnt++;
+					std::list<NFIQ::ActionableQualityFeedback>::iterator it;
+					for (it = actionableQuality.begin(); it != actionableQuality.end(); ++it)
+					{
+						(*fet).outFeature[cnt]=it->actionableQualityValue;
+						(*fet).outName[cnt]= new char[it->identifier.size()];
+						strcpy((*fet).outName[cnt],it->identifier.c_str());cnt++;
+					}
 				}
 			}
 		}
@@ -590,22 +592,24 @@ extern void get_features(NFIQ::NFIQ2Algorithm* nfiq2,const unsigned char* raw, i
 		bOutputFeatureData, featureVector,
 		bOutputSpeed, featureTimings,fjfxTemplateDataPointer,fjfxSize);
 		int cnt=0;
-		if(bOutputFeatureData)
-		{
-			std::list<NFIQ::QualityFeatureData>::iterator it;
-			for (it = featureVector.begin(); it != featureVector.end(); ++it){
-				(*fet).outFeature[cnt]=it->featureDataDouble;
-				(*fet).outName[cnt]= new char[it->featureID.size()];
-				strcpy((*fet).outName[cnt],it->featureID.c_str());cnt++;
-				}
-			if (actionableQuality.size() > 0)
+		if (qualityScore==255){
+			if(bOutputFeatureData)
 			{
-				std::list<NFIQ::ActionableQualityFeedback>::iterator it;
-				for (it = actionableQuality.begin(); it != actionableQuality.end(); ++it)
+				std::list<NFIQ::QualityFeatureData>::iterator it;
+				for (it = featureVector.begin(); it != featureVector.end(); ++it){
+					(*fet).outFeature[cnt]=it->featureDataDouble;
+					(*fet).outName[cnt]= new char[it->featureID.size()];
+					strcpy((*fet).outName[cnt],it->featureID.c_str());cnt++;
+					}
+				if (actionableQuality.size() > 0)
 				{
-					(*fet).outFeature[cnt]=it->actionableQualityValue;
-					(*fet).outName[cnt]= new char[it->identifier.size()];
-					strcpy((*fet).outName[cnt],it->identifier.c_str());cnt++;
+					std::list<NFIQ::ActionableQualityFeedback>::iterator it;
+					for (it = actionableQuality.begin(); it != actionableQuality.end(); ++it)
+					{
+						(*fet).outFeature[cnt]=it->actionableQualityValue;
+						(*fet).outName[cnt]= new char[it->identifier.size()];
+						strcpy((*fet).outName[cnt],it->identifier.c_str());cnt++;
+					}
 				}
 			}
 		}

@@ -55,9 +55,10 @@ class NFIQ2FET():
         x=mydll.get_features(self.nfiq2,raw,len,width,height,dpi,True,byref(fet))
         d= {}
         try:
-            for i,j in zip(fet.outFeature,fet.outName):
-                d.update({str(j)[2:-1]:i})
-            return d
+            if fet.qualityScore!=255:
+                for i,j in zip(fet.outFeature,fet.outName):
+                    d.update({str(j)[2:-1]:i})
+                return d
         except:
             return {}
     def get_features(self,file_path):
